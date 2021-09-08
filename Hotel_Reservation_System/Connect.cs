@@ -14,15 +14,19 @@ namespace Hotel_Reservation_System
      * 
      * 
      */
-    class Connect
+    class CONNECT
     {
 
-        private MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=Ibrake4cats1!@;database=hotel1");
 
+
+        private MySqlConnection connection = new MySqlConnection("datasource=localhost;port=3306;username=root;password=Ibrake4cats1!@;database=hotel;SSL Mode=none");
+        //private MySqlConnection connection = new MySqlConnection("Server=localhost;User=root;port=3306;password=Ibrake4cats1!@;database=hotel;SSL Mode=none");
+       
         public MySqlConnection getConnection()
         {
 
-            System.Windows.Forms.MessageBox.Show("connected");
+            //System.Windows.Forms.MessageBox.Show("connected");
+            Console.WriteLine("Connection Successful");
             return connection;
         }
 

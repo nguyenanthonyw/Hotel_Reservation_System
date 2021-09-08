@@ -21,21 +21,23 @@ namespace Hotel_Reservation_System
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            Connect conn = new Connect();
+            CONNECT conn = new CONNECT();
             DataTable table = new DataTable();
             DataSet dataSet = new DataSet();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
+
             MySqlCommand command = new MySqlCommand();
-            String query = "SELECT * FROM 'users' WHERE 'username'=@usn AND 'passwords'=@pass";
+            String query = "SELECT * FROM 'users' WHERE 'username'=@usn AND 'password'=@pass";
 
             command.CommandText = query;
             command.Connection = conn.getConnection();
 
-            command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = txtBoxLogin.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = txtBoxPassword.Text;
+           command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = txtBoxLogin.Text;
+           command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = txtBoxPassword.Text;
 
+           
             adapter.SelectCommand = command;
-            adapter.Fill(dataSet);
+            adapter.Fill(table); //error
 
 
 
